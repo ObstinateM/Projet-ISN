@@ -1,0 +1,76 @@
+ <!DOCTYPE html>
+ <html lang="en">
+	<head>
+		<title>Sign_up</title>
+		<link rel="stylesheet" type="text/css" href="reg.css" media="all">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="test_java_script"></script>  
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="global"><!--Main page-->
+			<div class="left">  <!--left side blue -->
+				<p id="title">Flashcard</p>
+				<div id="join_us">Rejoins-nous et révise<br>
+				 avec des cartes</div>
+			</div>
+
+			<div class="right"> <!--right side white-->
+					<div id="account">Créer un compte</div>
+					<div id="blue_square"></div>
+				<div class="user_content">
+					<div id="pseudo">
+						<div id="prenom">pseudo</div> <!--first box "pseudo"-->
+							<!--item 1-->
+							<div class="ghost">
+								<label for="password">
+									<input id="item"type="caractères" name="pseudo" placeholder="6-20 caractères ">
+								</label>
+					</div><!--end of first box "pseudo"-->
+
+					<div id="e-mail"> <!--second box "e-mail"-->
+						<div id="mail">E-Mail</div>
+
+							<!--item 2-->
+							<div class="ghost">
+								<label for="password">
+									<input id="item" type="caractères" name="e-mail" placeholder="e-mail">
+								</label>
+							</div>	
+					</div> <!-- end of second box "e-mail"-->
+
+					<div id="mot de passe">  <!--thirth box "password"-->
+						<div id="password">Mot De Passe</div>
+							<!--item 3-->
+							<div class="ghost">		
+								<input type="password" value="" id="myInput" placeholder="mot de passe " >
+								<input id="case"type="checkbox" onclick="show_button()" >
+									<script>
+											function show_button() {
+											  var x = document.getElementById("myInput");
+											  if (x.type === "password") {
+											    x.type = "text";
+											  } else {
+											    x.type = "password";
+											  }
+											}
+									</script>
+                            </div>
+                        </div>	
+					</div>
+					<div id="Confirmation mot de passe"> <!--fourth box "password confirmation"-->
+						<div id="password_confirm">Confirmation Mot De Passe</div>
+							<div class="ghost">
+								<label for="password_confirm">
+									<input id="item"type="password" name="password" placeholder="Confirmation du mot de passe" minlength="8" required>
+								</label>
+							</div>
+                        </div>
+					</div><!--end of fourth box "password confirmation"-->
+                    <div class="create"><!--Account creation button/box-->
+                        <input id="create_button" type="submit" value="Créer" />
+                    </div>
+			</div>
+		</div>
+	</body>
+</html> 

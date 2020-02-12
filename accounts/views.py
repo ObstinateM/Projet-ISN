@@ -3,6 +3,7 @@ from .forms import RegisterForm
 
 # Create your views here.
 
+
 def register(request):
     if request.method == "POST":
         form = RegisterForm()
@@ -11,6 +12,7 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'accounts/register.html', {"form":form})
+
 
 def login(request):
     pass

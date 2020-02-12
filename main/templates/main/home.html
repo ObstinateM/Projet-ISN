@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<body>
+	<div class="img-section">
+		<h2>Révise avec des</h2>
+		<h1>CARTES</h1>
+		<a href="" class="button-see">Voir</a>
+	</div>
+
+	<div class="clear"></div>
+
+	<div class="why-section">
+		<div class="fond"></div>
+			<h3>Pourquoi ce site ?</h3>
+			<p>
+				Ce site a été créé pour le projet d’ISN de deux élèves de
+				<br>terminale
+				<br>
+				<br>Le projet est simple :
+				<br>- Créer un site permettant de réviser avec le système de Flashcard
+				<br>- Avoir un « programme » de révision adapté à vos résultats,
+				<br>tout en s’appuyant sur les recherches de <span>Hermann Ebbinghaus :</span>
+				<br><span>La courbe de l’oubli.</span>
+				<br>Le tout fonctionne sur le <span>Framework Django</span>
+			</p>
+	</div>
+
+	<div class="clear"></div>
+
+	<div class="what-section">
+		<div class="oubli"></div>
+		{% load static %}
+		<center><img id="img-courbe" src="{% static 'img/Courbe-doubli.png' %}"></center>
+		<h3>Mais qu'est-ce que la courbe de l'oubli ?</h3>
+		<p>
+			La répétition est l’une des clés de l’apprentissage. Après une révision
+			<br>on oublie plus de la moitié des informations en seulement 1 jour. Mais
+			<br>si on rafraîchit ces informations, alors on mettra plusieurs jours avant
+			<br>de l’oublier a nouveau. C’est sur ce principe que ce repose le programme
+			<br>de révision du site.  
+		</p>
+	</div>
+
+	<div class="clear"></div>
+</body>
+
+{% endblock %}

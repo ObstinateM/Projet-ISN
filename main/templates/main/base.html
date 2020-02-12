@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Flashcard ISN</title>
+</head>
+
+<header>
+	<div class="wrapper-bar">
+		<h6>Flashcard <strong>ISN</strong></h6>
+		<nav class="navbar_class">
+			<ul>
+				<li class="navbar"><a id="isactive" href="">Accueil</a></li>
+				<li class="navbar"><a href="">Révision</a></li>
+				<li class="navbar"><a href="">Journal de bord</a></li>
+				<li class="navbar"><a href="">Contact</a></li>
+				<li id="img-nav"><a href="/register/"><img src="{% static 'img/user.png' %}"></a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer>
+	<div class="left">
+		<h5>Fait par</h5>
+		<p>Site créé par Couteau Arthur et Beauville Mathis dans le cadre du projet d’ISN</p>
+	</div>
+
+	<div class="middle">
+		<h5>Menu</h5>
+		<ul>
+			<li><a href="">Accueil</a></li>
+			<li><a href="">Révision</a></li>
+			<li><a href="">Journal de bord</a></li>
+			<li><a href="">Contact</a></li>
+			<li><a href="">CGU</a></li>
+		</ul>
+	</div>
+
+	<div class="clear2"></div>
+
+	<hr>
+
+	<div class="bottom-left">
+		<p>Copyright © 2020 Lorem Inc. Tous droits réservés.</p>
+	</div>
+
+	<div class="bottom-right">
+		<p>Propulsé par les serveurs du lycée François Couperin</p>
+	</div>
+
+</footer>
+
+</html>

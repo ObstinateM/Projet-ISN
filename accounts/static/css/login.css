@@ -1,0 +1,92 @@
+*{
+	margin: 0 0 0 0;
+}
+
+.container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.left h1, h2{
+	font-family: 'Montserrat';
+	font-weight: 200;
+	font-size: 30px;
+	text-align: center;
+	color: #fff;
+	padding-top: 125px;
+}
+
+.left h2{
+	padding-bottom: 750px;
+}
+
+.left{
+	flex-basis: 45%;
+	background-color: #2C2A4A;
+}
+
+.form-bg{
+	flex-basis: 35%;
+}
+
+.clear{
+	flex-basis: 15%;
+}
+
+.blue-bar{
+	height: 6px;
+	width: 170px;
+	background-color: aqua;
+	display: block;
+	margin-bottom: 80px;
+}
+
+h3{
+	font-size: 30px;
+	font-weight: 600;
+	font-family: 'Montserrat';
+	color: #2C2A4A;
+	padding-top: 125px;
+}
+
+label, span, input{
+	font-family: 'Montserrat';
+	font-weight: 600;
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+span{
+	display: none;
+	font-size: 0px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+label{
+	padding-bottom: 7px;
+}
+
+input{
+	background-color: #E5E5E5;
+	border: 0px;
+	margin-bottom: 20px;
+	width: 300px;
+}
+
+.btn{
+	width: 100px;
+	height: 35px;
+	background: #2C2A4A 0% 0% no-repeat padding-box;
+	color: #fff;
+	font-size: 15px;
+}
+
+@media screen and (max-width: 920px){
+	h1{
+		font-size: 90px;
+	}
+}
+  

@@ -15,4 +15,4 @@ def register(request):
 
 
 def login(request):
-    pass
+    return render(request, 'accounts/login.html', {})

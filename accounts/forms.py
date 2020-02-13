@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class RegisterForm(UserCreationForm):
     """A form that create a user with no privileges.
     """
-    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder':'exemple@flashcard.com'}))
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder':'exemple@flashcard.com'}))
 
 
     class Meta:

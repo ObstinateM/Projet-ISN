@@ -17,11 +17,8 @@
 	padding-top: 125px;
 }
 
-.left h2{
-	padding-bottom: 750px;
-}
-
 .left{
+	min-height: 100vh;
 	flex-basis: 45%;
 	background-color: #2C2A4A;
 }
@@ -89,6 +86,16 @@ placeholder{
 	background: #2C2A4A 0% 0% no-repeat padding-box;
 	color: #fff;
 	font-size: 15px;
+	margin-bottom: 200px;
+}
+
+.errorlist{
+	text-decoration: none;
+	font-family: 'Montserrat';
+	font-size: 15px;
+	color: rgb(255, 0, 0);
+	list-style: none;
+	margin-bottom: 10px;
 }
 
 @media screen and (max-width: 920px){

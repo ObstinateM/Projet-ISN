@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="{% static 'css/login.css' %}">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Créer un compte</title>
+	<title>Se connecter</title>
 	<style>
   		@media screen and (max-width: 1000px){
 			.left{
@@ -31,6 +31,10 @@
 			<form method="POST" class="form">
 				{% csrf_token %}
 				{{ form }}
+				<div class="link">
+					<a href="/register/">Créer un compte ?</a>
+					<a href="">Mot de passe oublié ?</a><br>
+				</div>
 				<button type="submit" class="btn">Connexion</button>
 			</form>
 		</div>

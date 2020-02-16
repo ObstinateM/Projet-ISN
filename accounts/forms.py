@@ -15,8 +15,8 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
         labels = {
             'username': 'Pseudo',
-            'email' : "E-Mail",
-            'password1' : 'Mot de passe'
+            'email': "E-Mail",
+            'password1': 'Mot de passe'
         }
         widgets = {
             'username': forms.TextInput(attrs={'placeholder': '150 caractères maximum.'}),

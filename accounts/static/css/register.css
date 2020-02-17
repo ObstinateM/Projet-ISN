@@ -98,6 +98,12 @@ placeholder{
 	margin-bottom: 10px;
 }
 
+a > img {
+	margin-top: 50px;
+	margin-left: 50px;
+	position: fixed;
+}
+
 @media screen and (max-width: 920px){
 	h1{
 		font-size: 90px;

@@ -20,7 +20,7 @@
 <body>
 	<div class="container">
 		<div class="left">
-			<!-- <img src="" alt=""> -->
+			<a href="{% url 'home' %}"><img src="{% static 'img/arrow.png' %}" alt="BACK"></a>
 			<h1>Flashcard</h1>
 			<h2>Rejoins nous et révise<br>avec des cartes</h2>
 		</div>
@@ -32,8 +32,8 @@
 				{% csrf_token %}
 				{{ form }}
 				<div class="link">
-					<a href="/register/">Créer un compte ?</a>
-					<a href="">Mot de passe oublié ?</a><br>
+					<a href="{% url 'register' %}">Créer un compte ?</a>
+					<a href="{% url 'password_reset' %}">Mot de passe oublié ?</a><br>
 				</div>
 				<button type="submit" class="btn">Connexion</button>
 			</form>

@@ -96,6 +96,7 @@ placeholder{
 	color: rgb(255, 0, 0);
 	list-style: none;
 	margin-bottom: 10px;
+	padding-left: 0px;
 }
 
 a > img {

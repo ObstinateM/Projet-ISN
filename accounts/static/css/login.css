@@ -97,6 +97,17 @@ input{
 	font-family: 'Montserrat';
 }
 
+.errorlist{
+	text-decoration: none;
+	font-family: 'Montserrat';
+	font-size: 15px;
+	color: rgb(255, 0, 0);
+	list-style: none;
+	margin-bottom: 10px;
+	padding-left: 0px;
+}
+
+
 a > img {
 	margin-top: 50px;
 	margin-left: 50px;

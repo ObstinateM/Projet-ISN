@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'isn.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql',   # Backends disponibles : 'postgresql', 'mysql', 'sqlite3' et 'oracle'.
-        'NAME': 'bdd_isn',
+        'ENGINE': 'django.db.backends.mysql',   # Backends disponibles : 'postgresql', 'mysql', 'sqlite3' et 'oracle'.
+        'NAME': 'isn_bdd',
         'USER': 'root',
-        'PASSWORD': '',        
+        'PASSWORD': 'root',        
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '8889',
     }
 }
 

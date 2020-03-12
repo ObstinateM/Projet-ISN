@@ -1,10 +1,41 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base-without-footer.html' %}
 
 {% block content %}
 
 <head>
 	{% load static %}
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <style>
+.page{
+    background-color: #EAEAEA;
+    padding-top: 70px;
+    padding-bottom: 150px;
+}
+
+*{
+    font-family: 'Roboto';
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 70px;
+    font-weight: 300;
+}
+
+h2{
+    font-weight: 400;
+}
+
+.carte{
+    background-color: #fff;
+    width: 680px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 25px;
+    box-shadow: 0px 0px 30px #aaa;
+}
+    </style>
 </head>
 
 <body>

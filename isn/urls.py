@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from accounts import urls
 from main import urls
+from card import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', include('accounts.urls')),
+    path('', include('card.urls')),
 ]

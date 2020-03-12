@@ -2,12 +2,403 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	<!--{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"> -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="HandheldFriendly" content="true">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<style>
+	*{
+	margin: 0px;
+	padding: 0px;
+}
+
+a{
+	text-decoration: none;
+}
+
+/* =================== */
+/* Barre de navigation */
+/* =================== */
+
+h6{
+	font-family: "Roboto", serif;
+	font-weight: 400;
+	font-size: 30px;
+	color: #ffffff;
+}
+
+header{
+	height: 110px;
+	background: #1E1C3B;
+}
+
+header h6{
+	float: left;
+	margin-top: 35px;
+	margin-left: 75px;
+}
+
+#img-nav{
+	float: left;
+	margin-top: 35px;
+	margin-right: 75px;
+}
+
+header nav{
+	float: right;
+}
+
+header nav ul li{
+	display: inline-block;
+	float: left;
+}
+
+.navbar{
+	margin-right: 15px;
+	color: #ffffff;
+	margin-top: 40px;
+}
+
+.navbar a{
+	color: #ffffff;
+	font-family: 'Roboto', serif;
+	font-weight: 400;
+	font-size: 25px;
+	float: right;
+}
+
+#isactive {
+	color: #7FDEFF;
+}
+
+/* =================== */
+/*     img-section     */
+/* =================== */
+
+.img-section{
+	height: 663px;
+	background: url(../img/img-section1.png) center;
+	background-size: cover;
+}
+
+h2{
+	font-family: 'Roboto';
+	font-weight: 100;
+	text-align: center;
+	letter-spacing: 7px;
+	padding-top: 150px;
+	font-size: 63px;
+}
+
+h1{
+	font-family: 'Roboto';
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 7px;
+	padding-top: 0px;
+	font-size: 100px;
+	padding-bottom: 68px;
+}
+
+.button-see{
+	font-family: 'Roboto';
+	font-weight: 800;
+	letter-spacing: 2px;
+    display: block;
+    width: 120px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    font-size: 27px;
+    margin: 0 auto;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/* =================== */
+/*        clear        */
+/* =================== */
+
+.clear{
+	padding-bottom: 290px;
+	padding-top: 0px;
+}
+
+/* =================== */
+/*     why-section     */
+/* =================== */
+
+.why-section{
+	height: 1001px;
+	background: url(../img/wrtiting-tools.png) center;
+	background-size: cover;
+}
+
+.fond{
+	background-color: #fff;
+	opacity: 0.5;
+	height: 1001px;
+	width: 100%;
+	position: absolute;
+}
+
+.why-section h3{
+	font-family: 'Roboto';
+	font-weight: 700;
+	font-size: 45px;
+	letter-spacing: 15px;
+	padding-top: 107px;
+	padding-left: 0px;
+	padding-bottom: 74px;
+	position: relative;
+	text-align: center;
+}
+
+.why-section p{
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 28px;
+	text-align: center;
+	letter-spacing: 3.5px;
+	line-height: 65px;
+	padding-left: 0px;
+	position: relative;
+}
+
+.why-section p span{
+	font-weight: 500;
+}
+
+/* =================== */
+/*     what-section     */
+/* =================== */
+
+.what-section h3{
+	font-family: 'Roboto';
+	font-weight: 700;
+	font-size: 45px;
+	letter-spacing: 7px;
+	position: relative;
+	text-align: center;
+	padding-left: 75px;
+	padding-top: 45px;
+}
+
+.what-section p{
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 28px;
+	letter-spacing: 1.5px;
+	line-height: 30px;
+	position: relative;
+	text-align: center;
+	padding-left: 75px;
+	padding-top: 50px;
+}
+
+#img-courbe{
+	display: block;
+	margin: 0 auto;
+}
+
+#oubli{
+	height: 200px;
+	background: url(../img/Courbe-doubli.png) no-repeat center; 
+	background-size: cover;
+}
+
+#img-courbe {
+	max-width:100%;
+    height:auto;
+  }
+
+/* ==================== */
+/*        footer        */
+/* ==================== */
+
+footer{
+	height: 330px;
+	background-color: #2C2A4A;
+}
+
+.left{
+	float: left;
+	padding-left: 250px;
+	padding-top: 53px;
+}
+
+.left h5{
+	font-family: 'Roboto';
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	padding-bottom: 11px;
+	text-transform: uppercase;
+}
+
+.left p{
+	font-family: 'Roboto';
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+	padding-right: 123px;
+}
+
+.middle{
+	padding-top: 53px;
+	float: left;
+	padding-right: 123px;
+}
+
+.middle h5{
+	font-family: 'Roboto';
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	padding-bottom: 11px;
+	text-transform: uppercase;
+}
+
+.middle ul{
+	list-style: none;
+	color: #fff;
+	font-family: 'Roboto';
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 25px;
+}
+
+.clear2{
+	padding-bottom: 260px;
+}
+
+.bottom-left{
+	font-family: 'Roboto';
+	color: #fff;
+	padding-top: 7px;
+	position: absolute;
+	padding-left: 75px;
+	font-weight: 400;
+}
+
+.bottom-right p{
+	font-family: 'Roboto';
+	color: #fff;
+	padding-top: 5px;
+	position: relative;
+	float: right;
+	padding-right: 75px;
+	font-weight: 400;
+}
+
+.bottom-right{
+	float: right;
+}
+
+a{
+	color: #fff;
+}
+
+/* ==================== */
+/*      Responsive      */
+/* ==================== */
+
+@media screen and (max-width: 920px){
+	.navbar_class{
+		display: none;
+	}
+	header h6{
+		float: left;
+		font-size: 20px;
+		padding-top: 10px;
+		padding-left: 5px;
+	}
+	header h6{
+		margin-top: 35px;
+		text-align: center;
+		margin-left: 35px;
+	}
+	h2{
+		font-size: 40px;
+	}
+	h1{
+		font-size: 60px;
+	}
+	.why-section h3{
+		text-align: center;
+		padding-left: 0px;
+	}
+	.why-section p {
+		text-align: center;
+		font-size: 28px;
+		letter-spacing: 2px;
+		line-height: 40px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.what-section h3{
+		font-size: 30px;
+	}
+	.what-section p{
+		font-size: 14px;
+	}
+	footer{
+		height: 660px;
+	}
+	.left, .middle{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.clear2{
+		padding-top: 150px;
+	}
+	.bottom-left, .bottom-right{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.bottom-left{
+		padding-bottom: 60px;
+	}
+	.bottom-left p{
+		padding-left: 0px;
+	}
+	.what-section{
+		padding-left: 15px;
+	}
+	.what-section h3, .what-section p{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.clear{
+		padding-bottom: 145px;
+		padding-top: 0px;
+	}
+}
+
+@media screen and (max-width: 970px){
+	.why-section h3{
+		font-size: 30px;
+	}
+	.why-section p{
+		font-size: 14px;
+	}
+}
+  
+@media screen and (max-width: 1555px){
+	.bottom-right{
+		float: left;
+		padding-top: 5px;
+		padding-bottom: 15px;
+		padding-left: 75px;
+	}
+	footer{
+		height: 400px;
+	}
+}
+	</style>
 	<title>Flashcard ISN</title>
 </head>
 

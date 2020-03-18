@@ -81,9 +81,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',   # Backends disponibles : 'postgresql', 'mysql', 'sqlite3' et 'oracle'.
         'NAME': 'isn_bdd',
         'USER': 'root',
-        'PASSWORD': 'root',        
+        'PASSWORD': '',        
         'HOST': '127.0.0.1',
-        'PORT': '8889',
+        'PORT': '3306',
     }
 }
 

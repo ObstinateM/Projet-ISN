@@ -35,6 +35,36 @@ h2{
     border-radius: 25px;
     box-shadow: 0px 0px 30px #aaa;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding-right: 75px;
+    padding-left: 75px;
+    padding-top: 45px;
+}
+
+input{
+    margin-bottom: 35px;
+    height: 100px;
+    background-color: #EAEAEA;
+    border: 0px;
+}
+
+input:last-child{
+    height: 50px;
+    background-color: #7FDEFF;
+    border: 0px;
+    margin-top: 50px;
+}
+
+label{
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 500;
+}
+
     </style>
 </head>
 
@@ -42,8 +72,11 @@ h2{
     <div class="page">
         <h1>Créer ta carte</h1>
         <div class="carte">
-            <!-- ICI LE FORMULAIRE -->
-        <h2>Matière</h2>
+            <form action="{% url 'create' %}" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Créer">
+            </form>
         </div>
     </div>
 </body>

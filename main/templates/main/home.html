@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load static %}
+
 <head>
 	<style>
 	
@@ -11,7 +13,7 @@
 
 .img-section{
 	height: 663px;
-	background: url(../img/img-section1.png) center;
+	background: url({% static 'img/img-section1.png'%}) center;
 	background-size: cover;
 }
 
@@ -65,7 +67,7 @@ h1{
 
 .why-section{
 	height: 1001px;
-	background: url(../img/wrtiting-tools.png) center;
+	background: url({% static 'img/wrtiting-tools.png'%}) center;
 	background-size: cover;
 }
 
@@ -138,7 +140,7 @@ h1{
 
 #oubli{
 	height: 200px;
-	background: url(../img/Courbe-doubli.png) no-repeat center; 
+	background: url({% static 'img/Courbe-doubli.png'%}) no-repeat center; 
 	background-size: cover;
 }
 
@@ -146,6 +148,104 @@ h1{
 	max-width:100%;
     height:auto;
   }
+
+/* ==================== */
+/*      Responsive      */
+/* ==================== */
+
+@media screen and (max-width: 920px){
+	.navbar_class{
+		display: none;
+	}
+	header h6{
+		float: left;
+		font-size: 20px;
+		padding-top: 10px;
+		padding-left: 5px;
+	}
+	header h6{
+		margin-top: 35px;
+		text-align: center;
+		margin-left: 35px;
+	}
+	h2{
+		font-size: 40px;
+	}
+	h1{
+		font-size: 60px;
+	}
+	.why-section h3{
+		text-align: center;
+		padding-left: 0px;
+	}
+	.why-section p {
+		text-align: center;
+		font-size: 28px;
+		letter-spacing: 2px;
+		line-height: 40px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.what-section h3{
+		font-size: 30px;
+	}
+	.what-section p{
+		font-size: 14px;
+	}
+	footer{
+		height: 660px;
+	}
+	.left, .middle{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.clear2{
+		padding-top: 150px;
+	}
+	.bottom-left, .bottom-right{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+	.bottom-left{
+		padding-bottom: 60px;
+	}
+	.bottom-left p{
+		padding-left: 0px;
+	}
+	.what-section{
+		padding-left: 15px;
+	}
+	.what-section h3, .what-section p{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.clear{
+		padding-bottom: 145px;
+		padding-top: 0px;
+	}
+}
+
+@media screen and (max-width: 970px){
+	.why-section h3{
+		font-size: 30px;
+	}
+	.why-section p{
+		font-size: 14px;
+	}
+}
+  
+@media screen and (max-width: 1555px){
+	.bottom-right{
+		float: left;
+		padding-top: 5px;
+		padding-bottom: 15px;
+		padding-left: 75px;
+	}
+	footer{
+		height: 400px;
+	}
+}
+
 	</style>
 </head>
 

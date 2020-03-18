@@ -9,7 +9,7 @@ def create(request):
     if request.method == 'POST':
         form = forms.CreateCard(request.POST, label_suffix='')
         if form.is_valid():
-            instance = form.save(commit=False, label_suffix='')
+            instance = form.save(commit=False)
             instance.user_id_shared = request.user
             instance.save()
     else:

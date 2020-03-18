@@ -5,3 +5,7 @@ class CreateCard(forms.ModelForm):
     class Meta:
         model = models.Cartes
         fields = ['title','content']
+        labels = {
+            'title': 'Titre',
+            'content': 'Contenu',
+        }

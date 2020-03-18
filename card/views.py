@@ -7,11 +7,11 @@ from . import forms
 @login_required(login_url="../login/")
 def create(request):
     if request.method == 'POST':
-        form = forms.CreateCard(request.POST)
+        form = forms.CreateCard(request.POST, label_suffix='')
         if form.is_valid():
-            instance = form.save(commit=False)
+            instance = form.save(commit=False, label_suffix='')
             instance.user_id_shared = request.user
             instance.save()
     else:
-        form = forms.CreateCard()
+        form = forms.CreateCard(label_suffix='')
     return render(request, 'card/create.html', {'form':form})

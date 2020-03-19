@@ -15,3 +15,7 @@ def create(request):
     else:
         form = forms.CreateCard(label_suffix='')
     return render(request, 'card/create.html', {'form':form})
+
+@login_required(login_url="../login/")
+def card_index(request):
+    return render(request, 'card/index.html', {})

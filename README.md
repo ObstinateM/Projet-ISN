@@ -5,8 +5,9 @@ Le github du projet ISN 2019/2020
 ## Use it locally
 
 ### #1 Create a Virtual environment :
-‘‘‘python -m venv env‘‘‘
-Activate it with ‘‘‘source env/bin/activate‘‘‘
+> python -m venv env
+Activate it with 
+> source env/bin/activate
 
 ### #2 Download requirements.txt
 pip install -r requirements.txt

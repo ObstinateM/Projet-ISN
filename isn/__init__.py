@@ -3,3 +3,6 @@ sys.path.insert(0,"/Users/mathisbeauville/Documents/Flashcard ISN/env/lib/python
 import pymysql
 
 pymysql.install_as_MySQLdb()"""
+
+import pymysql
+pymysql.install_as_MySQLdb()

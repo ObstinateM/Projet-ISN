@@ -32,9 +32,8 @@ def review(request):
     - Gestion des boutons -> Deux forms
     """
     #pks = Cartes.objects.values_list('pk', flat=True)
-    if len(Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)) != 0:
-        pks = Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)
-    else:
+    pks = Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)
+    if len(pks) == 0:
         return redirect('/create/')
     random_pk = choice(pks)
     random_obj = Cartes.objects.get(pk=random_pk)

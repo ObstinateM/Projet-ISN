@@ -27,11 +27,15 @@ def card_index(request):
 @login_required(login_url="../login/")
 def review(request):
     """ To do :
-    - Ajouter un filtre
+    - Ajouter un filtre ( ID de l'user + Review data > from now )
     - récuperer l'id de l'user
-    Gestion des boutons -> Deux forms
+    - Gestion des boutons -> Deux forms
     """
-    pks = Cartes.objects.values_list('pk', flat=True)
+    #pks = Cartes.objects.values_list('pk', flat=True)
+    if len(Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)) != 0:
+        pks = Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)
+    else:
+        return redirect('/create/')
     random_pk = choice(pks)
     random_obj = Cartes.objects.get(pk=random_pk)
     card = random_obj
@@ -39,6 +43,9 @@ def review(request):
         form = forms.ReviewCard(request.POST)
         if form.is_valid():
             pass # Do some stuff  
+        """
+        card.user == request.user
+        """
     else:
         form = forms.ReviewCard()
     return render(request, 'card/review.html', {'card':card, 'form':form})

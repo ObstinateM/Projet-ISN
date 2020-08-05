@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . import forms
+from card.models import Cartes
+
+from random import choice
+
 
 # Create your views here.
 
@@ -22,12 +26,15 @@ def card_index(request):
 
 @login_required(login_url="../login/")
 def review(request):
-    title = "Titre Test"
-    content = "Contenu Test bla lorem ipsum"
+    pks = Cartes.objects.values_list('pk', flat=True)
+    random_pk = choice(pks)
+    random_obj = Cartes.objects.get(pk=random_pk)
+    card = random_obj
     if request.method == 'POST':
         form = forms.ReviewCard(request.POST)
         if form.is_valid():
             pass # Do some stuff  
     else:
         form = forms.ReviewCard()
-    return render(request, 'card/review.html', {'title':title, 'content':content, 'form':form})
+    return render(request, 'card/review.html', {'card':card, 'form':form})
+

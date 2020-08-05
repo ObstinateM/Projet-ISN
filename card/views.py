@@ -27,9 +27,12 @@ def card_index(request):
 @login_required(login_url="../login/")
 def review(request):
     """ To do :
-    - Ajouter un filtre ( ID de l'user + Review data > from now )
-    - récuperer l'id de l'user
+    - Ajouter un filtre ( ID de l'user + Review date > from now )
+    - récuperer l'id de l'user --> request.user.id
     - Gestion des boutons -> Deux forms
+
+    POUR DEMAIN : GET_OR_CREATE DANS LA TABLE CARD_REVIEW ET CHECK SI REVIEW.DATE >= X DAYS >= FROM NOW
+
     """
     #pks = Cartes.objects.values_list('pk', flat=True)
     pks = Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)

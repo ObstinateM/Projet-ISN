@@ -26,6 +26,11 @@ def card_index(request):
 
 @login_required(login_url="../login/")
 def review(request):
+    """ To do :
+    - Ajouter un filtre
+    - récuperer l'id de l'user
+    Gestion des boutons -> Deux forms
+    """
     pks = Cartes.objects.values_list('pk', flat=True)
     random_pk = choice(pks)
     random_obj = Cartes.objects.get(pk=random_pk)

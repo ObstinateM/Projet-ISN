@@ -20,6 +20,3 @@ class Review(models.Model):
     card_id = models.ForeignKey(Cartes, on_delete=models.CASCADE, default=None) # Ajouter QUE Cartes.id
     review_date = models.DateField(auto_now=True)
     review_level = models.IntegerField()
-
-    def __str__(self):
-        return self.title

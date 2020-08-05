@@ -9,3 +9,6 @@ class CreateCard(forms.ModelForm):
             'title': 'Titre',
             'content': 'Contenu',
         }
+    
+class ReviewCard(forms.Form):
+    pass

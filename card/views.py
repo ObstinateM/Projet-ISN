@@ -19,3 +19,15 @@ def create(request):
 @login_required(login_url="../login/")
 def card_index(request):
     return render(request, 'card/index.html', {})
+
+@login_required(login_url="../login/")
+def review(request):
+    title = "Titre Test"
+    content = "Contenu Test bla lorem ipsum"
+    if request.method == 'POST':
+        form = forms.ReviewCard(request.POST)
+        if form.is_valid():
+            pass # Do some stuff  
+    else:
+        form = forms.ReviewCard()
+    return render(request, 'card/review.html', {'title':title, 'content':content, 'form':form})

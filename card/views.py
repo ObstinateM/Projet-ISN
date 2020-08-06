@@ -5,6 +5,7 @@ from card.models import Cartes, Review
 
 from random import choice
 import datetime
+import time
 
 # Create your views here.
 
@@ -27,12 +28,10 @@ def card_index(request):
 @login_required(login_url="../login/")
 def review(request):
     """ To do :
-    - Ajouter un filtre ( ID de l'user + Review date > from now )
-    - récuperer l'id de l'user --> request.user.id
-    - Gestion des boutons -> Deux forms
-
-    POUR DEMAIN : GET_OR_CREATE DANS LA TABLE CARD_REVIEW ET CHECK SI REVIEW.DATE >= X DAYS >= FROM NOW
-
+    Voir comment contourner le fait que la page se refresh pour envoyer l'info du submit
+    Il faut que la page, lorsqu'elle se refresh ne change pas
+    Donc changement d'url
+    donc voir comment ajouter un str dans l'url
     """
 
     loop = True
@@ -49,6 +48,7 @@ def review(request):
             card_id_id=card.id,
             user_id_id=request.user.id,
         )
+        print(card.id, "///", obj.id)
         date_3_days = obj.review_date + datetime.timedelta(days=3)
         date_7_days = obj.review_date + datetime.timedelta(days=7)
         date_21_days = obj.review_date + datetime.timedelta(days=21)
@@ -71,18 +71,28 @@ def review(request):
         elif obj.review_level == 5 and datetime.date.today() >= date_42_days:
             loop = False
         else:
-            print("SKIPPED")
+            # print("SKIPPED")
             loop = True
 
-    if request.method == 'POST':
-        form = forms.ReviewCard(request.POST)
-        if form.is_valid():
-            pass # Do some stuff  
-            """
-            card.user == request.user
-            """
+    if request.method=='POST' and 'btnform1' in request.POST:
+        print(card.id)
+        obj.review_level = 1
+        obj.review_date = datetime.date.today()
+        obj.save()
+        return redirect('review')
     else:
-        form = forms.ReviewCard()
-    context = {'card':card, 'form':form}
+        pass
+
+    if request.method=='POST' and 'btnform2' in request.POST:
+        print(card.id)
+        obj.review_date = datetime.date.today()
+        if obj.review_level != 5:
+            obj.review_level = obj.review_level + 1
+        obj.save()
+        return redirect('review')
+    else:
+        pass
+
+    context = {'card':card}
     return render(request, 'card/review.html', context)
 

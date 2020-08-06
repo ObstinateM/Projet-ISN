@@ -73,6 +73,16 @@ label{
         <h1>{{ card.title }}</h1>
         <div class="carte">
             <p> {{ card.content }} </p>
+            <form method='POST'>
+                {% csrf_token %}
+                {{form1.as_p}}
+                <button type="submit" name="btnform1" value={{obj}}>Je n'ai pas trouvé :'c</button>
+            </form>
+                <form method='POST'>
+                {% csrf_token %}
+                {{form2.as_p}}
+            <button type="submit" name="btnform2">J'ai trouvé !</button>
+            </form>
         </div>
     </div>
 </body>

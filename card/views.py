@@ -20,7 +20,7 @@ def create(request):
         form = forms.CreateCard(label_suffix='')
     return render(request, 'card/create.html', {'form':form})
 
-@login_required(login_url="../login/")
+@login_required(login_url="../../login/")
 def card_index(request):
     return render(request, 'card/index.html', {})
 
@@ -39,16 +39,16 @@ def review(request):
     if len(pks) == 0:
         return redirect('/create/')
     random_pk = choice(pks)
-    random_obj = Cartes.objects.get(pk=random_pk)
-    card = random_obj
+    card = Cartes.objects.get(pk=random_pk)
     if request.method == 'POST':
         form = forms.ReviewCard(request.POST)
         if form.is_valid():
             pass # Do some stuff  
-        """
-        card.user == request.user
-        """
+            """
+            card.user == request.user
+            """
     else:
         form = forms.ReviewCard()
-    return render(request, 'card/review.html', {'card':card, 'form':form})
+    context = {'card':card, 'form':form}
+    return render(request, 'card/review.html', context)
 

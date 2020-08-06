@@ -19,4 +19,4 @@ class Review(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     card_id = models.ForeignKey(Cartes, on_delete=models.CASCADE, default=None) # Ajouter QUE Cartes.id
     review_date = models.DateField(auto_now=True)
-    review_level = models.IntegerField()
+    review_level = models.IntegerField(default=1)

@@ -17,6 +17,7 @@ def create(request):
             instance = form.save(commit=False)
             instance.user_id_shared = request.user
             instance.save()
+            return redirect('create')
     else:
         form = forms.CreateCard(label_suffix='')
     return render(request, 'card/create.html', {'form':form})

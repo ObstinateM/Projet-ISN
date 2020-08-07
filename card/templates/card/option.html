@@ -6,35 +6,75 @@
 	{% load static %}
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
     <style>
+*{
+    font-family: Montserrat;
+}
 .page{
     background-color: #EAEAEA;
     padding-top: 70px;
     padding-bottom: 150px;
+    height: 100vh;
 }
+.grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container{
+    top: 198px;
+    left: 105px;
+    width: 300px;
+    height: 58px;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 50px #00000029;
+    border-radius: 20px;
+    opacity: 1;
+}
+
+.button{
+    padding: 5px;
+    background: #80DEFC 0% 0% no-repeat padding-box;
+    opacity: 1;
+    text-align: left;
+    font: Bold 13px/18px Montserrat;
+    letter-spacing: 0px;
+    color: #1E1C3B;
+}
+
+table{
+    margin: auto;
+    margin-top: 10px;
+}
+
+.text{
+    margin-right: 10px;
+}
+
     </style>
 </head>
 
 <body>
     <div class="page">
-        <div class="container">
-            <table>
-            <tr>
-                <th>Titre</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
-            </tr>
-
+        <div class="grid">
             {% for objs in obj %}
-                <tr>
-                    <td>{{objs.title}}</td>
-                    <td><a href="{% url 'update' objs.id %}">Modifier</a></td>
-                    <td><a href="{% url 'delete' objs.id %}">Supprimer</a></td>
-                </tr>
+                <div class="container">
+                    <table>
+                        <tr>
+                            <td class="text">{{objs.title|truncatechars:20}}</td>
+                            <td><a class="button" href="{% url 'update' objs.id %}">Modifier</a></td>
+                            <td><a class="button" href="{% url 'delete' objs.id %}">Supprimer</a></td>
+                        </tr>
+                    </table>
+                </div>
             {% endfor %}
-
-            </table>
         </div>
-
     </div>
 </body>
 

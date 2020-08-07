@@ -46,8 +46,6 @@ def review(request, urlid):
         obj.review_date = datetime.date.today()
         obj.save()
         return redirect('randomize')
-    else:
-        pass
 
     if request.method=='POST' and 'btnform2' in request.POST:
         print(card.id)
@@ -56,8 +54,6 @@ def review(request, urlid):
             obj.review_level = obj.review_level + 1
         obj.save()
         return redirect('randomize')
-    else:
-        pass
 
     context = {'card':card}
     return render(request, 'card/review.html', context)

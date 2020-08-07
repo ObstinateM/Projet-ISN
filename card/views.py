@@ -104,3 +104,30 @@ def randomizeCard(request):
         else:
             # print("SKIPPED")
             loop = True
+
+def option(request):
+    obj = Cartes.objects.all().filter(user_id_shared_id__exact=request.user.id)
+    context = {'obj':obj}
+    return render(request, 'card/option.html', context)
+
+def update(request, pk):
+    card = Cartes.objects.get(id=pk)
+    form = forms.CreateCard(instance=card)
+
+    if request.method == 'POST':
+        form = forms.CreateCard(request.POST, instance=card)
+        print("C VALIDE OU PAS WSHHH", form.is_valid())
+        if form.is_valid():
+            form.save()
+            return redirect('option')
+
+    context = {'form': form}
+    return render(request, 'card/update.html', context)
+
+def delete(request, pk):
+    card = Cartes.objects.get(id=pk)
+    if request.method == 'POST':
+        card.delete()
+        return redirect('option')
+    context = {'card':card}
+    return render(request, 'card/delete.html', context)

@@ -6,4 +6,7 @@ urlpatterns = [
     path('card/index/', views.card_index, name='card_index'),
     path('review/<urlid>/', views.review, name='review'),
     path('getrandomcard/', views.randomizeCard, name='randomize'),
+    path('option/', views.option, name='option'),
+    path('update/<pk>/', views.update, name='update'),
+    path('delete/<pk>/', views.delete, name='delete'),
 ]

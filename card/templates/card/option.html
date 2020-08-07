@@ -1,0 +1,41 @@
+{% extends 'main/base-without-footer.html' %}
+
+{% block content %}
+
+<head>
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <style>
+.page{
+    background-color: #EAEAEA;
+    padding-top: 70px;
+    padding-bottom: 150px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <table>
+            <tr>
+                <th>Titre</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+
+            {% for objs in obj %}
+                <tr>
+                    <td>{{objs.title}}</td>
+                    <td><a href="{% url 'update' objs.id %}">Modifier</a></td>
+                    <td><a href="{% url 'delete' objs.id %}">Supprimer</a></td>
+                </tr>
+            {% endfor %}
+
+            </table>
+        </div>
+
+    </div>
+</body>
+
+{% endblock %}

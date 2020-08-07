@@ -27,37 +27,39 @@ def card_index(request):
     return render(request, 'card/index.html', {})
 
 @login_required(login_url="../login/")
-def review(request, urlid):
+def review(request, urlid=None):
     """ To do :
     Voir comment contourner le fait que la page se refresh pour envoyer l'info du submit
     Il faut que la page, lorsqu'elle se refresh ne change pas
     Donc changement d'url
     donc voir comment ajouter un str dans l'url
     """
-
-    card = Cartes.objects.get(pk=urlid)
-    obj, created = Review.objects.get_or_create(
-        card_id_id=card.id,
-        user_id_id=request.user.id,
-    )
-
-    if request.method=='POST' and 'btnform1' in request.POST:
-        print(card.id)
-        obj.review_level = 1
-        obj.review_date = datetime.date.today()
-        obj.save()
+    if urlid == None:
         return redirect('randomize')
+    else:
+        card = Cartes.objects.get(pk=urlid)
+        obj, created = Review.objects.get_or_create(
+            card_id_id=card.id,
+            user_id_id=request.user.id,
+        )
 
-    if request.method=='POST' and 'btnform2' in request.POST:
-        print(card.id)
-        obj.review_date = datetime.date.today()
-        if obj.review_level != 5:
-            obj.review_level = obj.review_level + 1
-        obj.save()
-        return redirect('randomize')
+        if request.method=='POST' and 'btnform1' in request.POST:
+            print(card.id)
+            obj.review_level = 1
+            obj.review_date = datetime.date.today()
+            obj.save()
+            return redirect('randomize')
 
-    context = {'card':card}
-    return render(request, 'card/review.html', context)
+        if request.method=='POST' and 'btnform2' in request.POST:
+            print(card.id)
+            obj.review_date = datetime.date.today()
+            if obj.review_level != 5:
+                obj.review_level = obj.review_level + 1
+            obj.save()
+            return redirect('randomize')
+
+        context = {'card':card}
+        return render(request, 'card/review.html', context)
 
 @login_required(login_url="../login/")
 def randomizeCard(request):

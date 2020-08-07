@@ -26,7 +26,7 @@ def card_index(request):
     return render(request, 'card/index.html', {})
 
 @login_required(login_url="../login/")
-def review(request):
+def review(request, urlid):
     """ To do :
     Voir comment contourner le fait que la page se refresh pour envoyer l'info du submit
     Il faut que la page, lorsqu'elle se refresh ne change pas
@@ -34,6 +34,36 @@ def review(request):
     donc voir comment ajouter un str dans l'url
     """
 
+    card = Cartes.objects.get(pk=urlid)
+    obj, created = Review.objects.get_or_create(
+        card_id_id=card.id,
+        user_id_id=request.user.id,
+    )
+
+    if request.method=='POST' and 'btnform1' in request.POST:
+        print(card.id)
+        obj.review_level = 1
+        obj.review_date = datetime.date.today()
+        obj.save()
+        return redirect('randomize')
+    else:
+        pass
+
+    if request.method=='POST' and 'btnform2' in request.POST:
+        print(card.id)
+        obj.review_date = datetime.date.today()
+        if obj.review_level != 5:
+            obj.review_level = obj.review_level + 1
+        obj.save()
+        return redirect('randomize')
+    else:
+        pass
+
+    context = {'card':card}
+    return render(request, 'card/review.html', context)
+
+@login_required(login_url="../login/")
+def randomizeCard(request):
     loop = True
     i = 0
     while loop and i < len(Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True))*4:
@@ -62,37 +92,19 @@ def review(request):
         # print(obj.review_level == 5 and datetime.date.today() >= date_42_days)
         if obj.review_level == 1:
             loop = False
+            return redirect('review', urlid=random_pk)
         elif obj.review_level == 2 and datetime.date.today() >= date_3_days:
             loop = False
+            return redirect('review', urlid=random_pk)
         elif obj.review_level == 3 and datetime.date.today() >= date_7_days:
             loop = False
+            return redirect('review', urlid=random_pk)
         elif obj.review_level == 4 and datetime.date.today() >= date_21_days:
             loop = False
+            return redirect('review', urlid=random_pk)
         elif obj.review_level == 5 and datetime.date.today() >= date_42_days:
             loop = False
+            return redirect('review', urlid=random_pk)
         else:
             # print("SKIPPED")
             loop = True
-
-    if request.method=='POST' and 'btnform1' in request.POST:
-        print(card.id)
-        obj.review_level = 1
-        obj.review_date = datetime.date.today()
-        obj.save()
-        return redirect('review')
-    else:
-        pass
-
-    if request.method=='POST' and 'btnform2' in request.POST:
-        print(card.id)
-        obj.review_date = datetime.date.today()
-        if obj.review_level != 5:
-            obj.review_level = obj.review_level + 1
-        obj.save()
-        return redirect('review')
-    else:
-        pass
-
-    context = {'card':card}
-    return render(request, 'card/review.html', context)
-

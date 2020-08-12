@@ -65,7 +65,9 @@ def review(request, urlid=None):
 def randomizeCard(request):
     loop = True
     i = 0
-    while loop and i < len(Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True))*4:
+    while loop:
+        if i > len(Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True))*4:
+            return redirect('create')
         i = i + 1
         pks = Cartes.objects.filter(user_id_shared_id__exact=request.user.id).values_list('pk', flat=True)
         if len(pks) == 0:

@@ -108,18 +108,19 @@ def randomizeCard(request):
             # print("SKIPPED")
             loop = True
 
+@login_required(login_url="../login/")
 def option(request):
     obj = Cartes.objects.all().filter(user_id_shared_id__exact=request.user.id)
     context = {'obj':obj}
     return render(request, 'card/option.html', context)
 
+@login_required(login_url="../login/")
 def update(request, pk):
     card = Cartes.objects.get(id=pk)
     form = forms.CreateCard(instance=card)
 
     if request.method == 'POST':
         form = forms.CreateCard(request.POST, instance=card)
-        print("C VALIDE OU PAS WSHHH", form.is_valid())
         if form.is_valid():
             form.save()
             return redirect('option')
@@ -127,6 +128,7 @@ def update(request, pk):
     context = {'form': form}
     return render(request, 'card/update.html', context)
 
+@login_required(login_url="../login/")
 def delete(request, pk):
     card = Cartes.objects.get(id=pk)
     if request.method == 'POST':
@@ -134,3 +136,40 @@ def delete(request, pk):
         return redirect('option')
     context = {'card':card}
     return render(request, 'card/delete.html', context)
+
+
+@login_required(login_url="../login/")
+def translate(request):
+    if request.method == 'POST':
+        form = forms.TranslateForm(request.POST)
+        if form.is_valid():
+            wordEn = form.cleaned_data['wordEn']
+            wordFr = "Mot en français"
+
+            # Translate from API here
+            # r = response.json()
+            # wordFr = r['translations][0]['translation]}
+
+            request.session['wordFr'] = wordFr
+            request.session['wordEn'] = wordEn
+            return redirect('translateadd')
+    else:
+        form = forms.TranslateForm()
+    return render(request, 'card/translate.html', {'form':form})
+
+@login_required(login_url="../login/")
+def translateAdd(request):
+    wordFr = request.session['wordFr']
+    wordEn = request.session['wordEn']
+    context = {'wordFr': wordFr, 'wordEn': wordEn}
+
+    if request.method=='POST':
+        form = forms.CreateCard()
+        instance = form.save(commit=False)
+        instance.user_id_shared = request.user
+        instance.title = wordEn
+        instance.content = wordFr
+        instance.save()
+        return redirect('card_index')
+
+    return render(request, 'card/translateadd.html', context)

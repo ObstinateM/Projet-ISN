@@ -10,4 +10,6 @@ urlpatterns = [
     path('option/', views.option, name='option'),
     path('update/<pk>/', views.update, name='update'),
     path('delete/<pk>/', views.delete, name='delete'),
+    path('translate/', views.translate, name='translate'),
+    path('translateadd/', views.translateAdd, name='translateadd'),
 ]

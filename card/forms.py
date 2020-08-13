@@ -9,3 +9,6 @@ class CreateCard(forms.ModelForm):
             'title': 'Titre',
             'content': 'Contenu',
         }
+
+class TranslateForm(forms.Form):
+    wordEn = forms.CharField(label='Le mot en anglais :', max_length=100)

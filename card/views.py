@@ -6,6 +6,8 @@ from card.models import Cartes, Review
 from random import choice
 import datetime
 import time
+import requests
+
 
 # Create your views here.
 
@@ -146,11 +148,22 @@ def translate(request):
         form = forms.TranslateForm(request.POST)
         if form.is_valid():
             wordEn = form.cleaned_data['wordEn']
-            wordFr = "Mot en français"
 
-            # Translate from API here
-            # r = response.json()
-            # wordFr = r['translations][0]['translation]}
+            headers = {
+                'Content-Type': 'application/json',
+            }
+            
+            params = (
+                ('version', '2018-05-01'),
+            )
+            
+            data = '{"text": ["%s"], "model_id":"en-fr"}' % (wordEn)
+            
+            response = requests.post('https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/e67f8777-50f2-4903-9442-c6697780d447/v3/translate', headers=headers, params=params, data=data, auth=('apikey', 'W5vup8HAZcXJw6cYQNCFXQy-PaL_HAXhwmoVV1Hjezbi'))
+            
+            r = response.json()
+            
+            wordFr = r['translations'][0]['translation']
 
             request.session['wordFr'] = wordFr
             request.session['wordEn'] = wordEn

@@ -1,62 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
 {% extends 'main/base-without-footer.html' %}
 
 {% block content %}
-
 <head>
-	{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
     <style>
-*{
-    font-family: Montserrat;
-}
-.page{
-    background-color: #EAEAEA;
-    padding-top: 70px;
-    padding-bottom: 150px;
-    height: 100vh;
-}
-.grid{
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 30px;
-    grid-row-gap: 60px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
+        .page{
+            background-color: #EAEAEA;
+            padding-top: 70px;
+            padding-bottom: 150px;
+            height: 100vh;
+        }
 
-.container{
-    top: 198px;
-    left: 105px;
-    width: 300px;
-    height: 58px;
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 50px #00000029;
-    border-radius: 20px;
-    opacity: 1;
-}
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap: 30px;
+            grid-row-gap: 60px;
+        }
 
-.button{
-    padding: 5px;
-    background: #80DEFC 0% 0% no-repeat padding-box;
-    opacity: 1;
-    text-align: left;
-    font: Bold 13px/18px Montserrat;
-    letter-spacing: 0px;
-    color: #1E1C3B;
-}
+        .card{
+            background-color: #fff;
+            width: 350px;
+            height: 50px;
+            vertical-align: middle;
+            text-align: center;
+            border-radius: 20px;
+        }
 
-table{
-    margin: auto;
-    margin-top: 10px;
-}
+        .card > a, .card > p{
+            display: inline-block;
+            font-family: Montserrat;
+            font-size: 13px;
+        }
 
-.text{
-    margin-right: 10px;
-}
+        .card > a{
+            background-color: #80DEFC;
+            padding: 7px 7px 7px 7px;
+            text-decoration: none;
+            color: black;
+            margin-top: 10px;
+        }
 
+        @media screen and (max-width: 1520px){
+            .grid{
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 1110px){
+            .grid{
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 770px){
+            .grid{
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -64,14 +70,10 @@ table{
     <div class="page">
         <div class="grid">
             {% for objs in obj %}
-                <div class="container">
-                    <table>
-                        <tr>
-                            <td class="text">{{objs.title|truncatechars:20}}</td>
-                            <td><a class="button" href="{% url 'update' objs.id %}">Modifier</a></td>
-                            <td><a class="button" href="{% url 'delete' objs.id %}">Supprimer</a></td>
-                        </tr>
-                    </table>
+                <div class="card">
+                    <p>{{objs.title|truncatechars:20}}</p>
+                    <a href="{% url 'update' objs.id %}">Modifier</a>
+                    <a href="{% url 'delete' objs.id %}">Supprimer</a>
                 </div>
             {% endfor %}
         </div>
@@ -79,3 +81,5 @@ table{
 </body>
 
 {% endblock %}
+
+</html>

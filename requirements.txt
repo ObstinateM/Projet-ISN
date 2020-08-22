@@ -4,8 +4,8 @@ certifi==2020.6.20
 cffi==1.14.0
 chardet==3.0.4
 cryptography==2.8
-decouple==0.0.7
 Django==3.0.3
+gunicorn==20.0.4
 idna==2.10
 isort==4.3.21
 lazy-object-proxy==1.4.3
@@ -13,10 +13,12 @@ mccabe==0.6.1
 pycparser==2.19
 pylint==2.4.4
 PyMySQL==0.9.3
+python-decouple==3.3
 pytz==2019.3
 requests==2.24.0
 six==1.14.0
 sqlparse==0.3.0
 typed-ast==1.4.1
 urllib3==1.25.10
+whitenoise==5.2.0
 wrapt==1.11.2
